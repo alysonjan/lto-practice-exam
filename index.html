@@ -11,13 +11,26 @@
 
 <body>
     <div class="app-container">
+        <!-- Floating particles for background -->
+        <div class="particles" aria-hidden="true">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
         <!-- Start Screen -->
         <div id="start-screen" class="screen active">
-            <h1>LTO Practice Exam</h1>
-            <p>Test your knowledge with these 120 LTO exam questions.</p>
-            <p>You have <strong>20 minutes</strong> to complete the exam.</p>
-            <h2>Prepared by: Ajax Alyson</h2>
-            <button id="start-btn" class="primary-btn">Start Exam</button>
+            <div class="hero-badge">🚗 LTO Philippines</div>
+            <h1 class="hero-title" aria-label="LTO Practice Exam">
+                <span class="letter" style="--i:0">L</span><span class="letter" style="--i:1">T</span><span class="letter" style="--i:2">O</span><span class="letter space" style="--i:3">&nbsp;</span><span class="letter" style="--i:4">P</span><span class="letter" style="--i:5">r</span><span class="letter" style="--i:6">a</span><span class="letter" style="--i:7">c</span><span class="letter" style="--i:8">t</span><span class="letter" style="--i:9">i</span><span class="letter" style="--i:10">c</span><span class="letter" style="--i:11">e</span><span class="letter space" style="--i:12">&nbsp;</span><span class="letter" style="--i:13">E</span><span class="letter" style="--i:14">x</span><span class="letter" style="--i:15">a</span><span class="letter" style="--i:16">m</span>
+            </h1>
+            <p class="hero-subtitle">Test your knowledge with these <strong>120</strong> LTO exam questions.</p>
+            <p class="hero-info">Passing score: <strong>96/120 (80%)</strong></p>
+            <h2 class="hero-author">Prepared by: Ajax Alyson</h2>
+            <button id="start-btn" class="primary-btn glow-btn">🚀 Start Exam</button>
         </div>
 
         <!-- Quiz Screen -->
