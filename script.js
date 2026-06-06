@@ -19,7 +19,7 @@ const ui = {
     timeLeft: document.getElementById('time-left'),
     questionText: document.getElementById('question-text'),
     optionsContainer: document.getElementById('options-container'),
-    timerContainer: document.querySelector('.timer'),
+    // timerContainer: document.querySelector('.timer'),
     scoreText: document.getElementById('score-text'),
     scoreMessage: document.getElementById('score-message'),
     scoreCircle: document.querySelector('.score-circle'),
@@ -31,7 +31,7 @@ let currentQuestionIndex = 0;
 let userAnswers = new Array(questions.length).fill(null);
 let timerInterval;
 const TOTAL_TIME = 20 * 60; // 20 minutes in seconds
-let timeRemaining = TOTAL_TIME;
+// let timeRemaining = TOTAL_TIME;
 
 // Initialize
 function init() {
@@ -71,10 +71,10 @@ function updateTimer() {
 
 function startExam() {
     showScreen('quiz');
-    timeRemaining = TOTAL_TIME;
-    ui.timeLeft.textContent = formatTime(timeRemaining);
-    ui.timerContainer.classList.remove('warning');
-    timerInterval = setInterval(updateTimer, 1000);
+    // timeRemaining = TOTAL_TIME;
+    // ui.timeLeft.textContent = formatTime(timeRemaining);
+    // ui.timerContainer.classList.remove('warning');
+    // timerInterval = setInterval(updateTimer, 1000);
     loadQuestion(0);
 }
 
@@ -89,7 +89,17 @@ function loadQuestion(index) {
     
     question.options.forEach((optText, i) => {
         const optionEl = document.createElement('div');
-        optionEl.className = `option ${userAnswers[index] === i ? 'selected' : ''}`;
+        
+        let classes = ['option'];
+        if (userAnswers[index] !== null) {
+            if (i === question.answer) {
+                classes.push('correct');
+            } else if (i === userAnswers[index]) {
+                classes.push('incorrect');
+            }
+        }
+        
+        optionEl.className = classes.join(' ');
         optionEl.textContent = String.fromCharCode(97 + i) + '. ' + optText; // a, b, c
         optionEl.addEventListener('click', () => selectOption(i));
         ui.optionsContainer.appendChild(optionEl);
@@ -108,15 +118,19 @@ function loadQuestion(index) {
 }
 
 function selectOption(optionIndex) {
-    userAnswers[currentQuestionIndex] = optionIndex;
+    // Prevent changing answer once selected
+    if (userAnswers[currentQuestionIndex] !== null) return;
     
-    // Update UI
+    userAnswers[currentQuestionIndex] = optionIndex;
+    const question = questions[currentQuestionIndex];
+    
+    // Update UI immediately to show correct/incorrect
     const options = ui.optionsContainer.children;
     for (let i = 0; i < options.length; i++) {
-        if (i === optionIndex) {
-            options[i].classList.add('selected');
-        } else {
-            options[i].classList.remove('selected');
+        if (i === question.answer) {
+            options[i].classList.add('correct');
+        } else if (i === optionIndex && i !== question.answer) {
+            options[i].classList.add('incorrect');
         }
     }
 }
@@ -129,7 +143,7 @@ function navigate(direction) {
 }
 
 function submitExam() {
-    clearInterval(timerInterval);
+    // clearInterval(timerInterval);
     showScreen('results');
     generateResults();
 }
