@@ -1,92 +1,137 @@
-const questions = [
-  {
-    question: "When can a child be exempted to be seated in a child restraint system?",
-    options: [
-      "If the child will be late for a medical appointment",
-      "If the child is going to school",
-      "If the child requires immediate medical treatment"
-    ],
-    answer: 2
-  },
-  {
-    question: "What are the three field sobriety tests?",
-    options: [
-      "Eye test, walk and turn, one leg stand",
-      "Eye test, running straight, jumping rope",
-      "Reading and Comprehension Test, Singing the National Anthem and Drinking one liter of fresh water"
-    ],
-    answer: 0
-  },
-  {
-    question: "How do you respond to a situation where you are approaching your garage to your right and you need to pass on a bike lane which is open, but a speeding SUV unexpectedly uses the bike lane to overtake you?",
-    options: [
-      "give way to the speeding SUV",
-      "give way to motorists on the left",
-      "give way to cyclists"
-    ],
-    answer: 0
-  },
-  {
-    question: "What is the penalty if a driver is found to have a fake or counterfeit license?",
-    options: [
-      "His/her driver's license shall be confiscated and he/she shall be disqualified from being granted a driver's license and driving a motor vehicle for a period of one (1) year from the payment of monetary fine",
-      "Imprisonment for six (6) months plus fine",
-      "Banned from getting a driver's license for life"
-    ],
-    answer: 0
-  },
-  {
-    question: "What is the penalty if a driver is convicted of a crime while using a motor vehicle?",
-    options: [
-      "The DL will be revoked and the driver will be perpetually disqualified from applying for a license plus monetary fine",
-      "The DL will be suspended and the driver will pay a fine",
-      "The DL will be confiscated"
-    ],
-    answer: 0
-  },
-  {
-    question: "LTO rules and regulations prohibit drivers of public utility vehicles from:",
-    options: [
-      "overcharging fares and fast taximeters",
-      "cutting trip or going beyond authorized line",
-      "all of the answers are correct"
-    ],
-    answer: 2
-  },
-  {
-    question: "Who is a Professional Driver?",
-    options: [
-      "An expert and experienced driver",
-      "Any driver who can operate a specific motor vehicle category",
-      "Any driver who has a qualification to drive a Private or For Hire Vehicle"
-    ],
-    answer: 2
-  },
-  {
-    question: "How many days do you need to settle a traffic violation with LTO?",
-    options: [
-      "Within 15 days",
-      "Within 10 days",
-      "Within 30 days"
-    ],
-    answer: 0
-  },
-  {
-    question: "What is the maximum validity of license that a driver may have if he/she has no traffic violation at the time of renewal?",
-    options: [
-      "5 years validity",
-      "10 years validity",
-      "15 years validity"
-    ],
-    answer: 1
-  },
-  {
-    question: "Can a driver be given a 10-year validity license if he/she has traffic violation/s?",
-    options: [
-      "No",
-      "Yes",
-      "Yes - if all penalties are paid 15 days prior to renewal"
-    ],
-    answer: 0
-  }
+const examData = [
+    ["1. When can a child be exempted to be seated in a child restraint system?", ["a. If the child will be late for a medical appointment", "b. If the child is going to school", "c. If the child requires immediate medical treatment"], 2],
+    ["2. What are the three field sobriety tests?", ["a. Eye test, walk and turn, one leg stand", "b. Eye test, running straight, jumping rope", "c. Reading and Comprehension Test, Singing the National Anthem and Drinking one liter of fresh water"], 0],
+    ["3. How do you respond to a situation where you are approaching your garage to your right and you need to pass on a bike lane which is open, but a speeding SUV unexpectedly uses the bike lane to overtake you?", ["a. give way to the speeding SUV", "b. give way to motorists on the left", "c. give way to cyclists"], 0],
+    ["4. What is the penalty if a driver is found to have a fake or counterfeit license?", ["a. His/her driver's license shall be confiscated and he/she shall be disqualified...", "b. Imprisonment for six (6) months plus fine", "c. Banned from getting a driver's license for life"], 0],
+    ["5. What is the penalty if a driver is convicted of a crime while using a motor vehicle?", ["a. The DL will be revoked and the driver will be perpetually disqualified...", "b. The DL will be suspended and the driver will pay a fine", "c. The DL will be confiscated"], 0],
+    ["6. LTO rules and regulations prohibit drivers of public utility vehicles from:", ["a. overcharging fares and fast taximeters", "b. cutting trip or going beyond authorized line", "c. all of the answers are correct"], 2],
+    ["7. Who is a Professional Driver?", ["a. An expert and experienced driver", "b. Any driver who can operate a specific motor vehicle category", "c. Any driver who has a qualification to drive a Private or For Hire Vehicle"], 2],
+    ["8. How many days do you need to settle a traffic violation with LTO?", ["a. Within 15 days", "b. Within 10 days", "c. Within 30 days"], 0],
+    ["9. What is the maximum validity of license that a driver may have if he/she has no traffic violation at the time of renewal?", ["a. 5 years validity", "b. 10 years validity", "c. 15 years validity"], 1],
+    ["10. Can a driver be given a 10-year validity license if he/she has traffic violation/s?", ["a. No", "b. Yes", "c. Yes - if all penalties are paid 15 days prior to renewal"], 0],
+    ["11. What is the allowed age to apply for a Non Professional driver's license?", ["a. 16 years old", "b. 17 years old", "c. 20 Years old"], 1],
+    ["12. Registration of motor vehicle may be suspended if:", ["a. motor vehicle is found to be in conformity with regulations", "b. motor vehicle is found to be unsightly", "c. motor vehicle is not registered to the driver at the time of apprehension"], 1],
+    ["13. Where do you need to display your plate number?", ["a. one in front and one in the rear of the vehicle", "b. two in front", "c. one in the front windshield and one at the back windshield"], 0],
+    ["14. This traffic sign means \"Yield the right of way\"", ["a. inverted triangle", "b. vertical triangle", "c. horizontal triangle"], 0],
+    ["15. What is the main purpose of traffic laws, rules and regulations?", ["a. To generate revenues for the government", "b. To discipline the motorists", "c. To put order on the road"], 2],
+    ["16. Green light at an intersection means", ["a. pedestrians are allowed to cross all pedestrian lanes", "b. pedestrians are not allowed to cross all pedestrian lanes", "c. the vehicles on the other street are stopped"], 2],
+    ["17. Flashing yellow light means:", ["a. slowdown and proceed with caution", "b. you have the right of way over a flashing yellow light", "c. vehicles will be crossing from the other side"], 0],
+    ["18. Parking is allowed if the vehicle is _________", ["a. beyond 4 meters of a fire hydrant", "b. within 3 meters of the intersection of curve lines", "c. on the intersection"], 2],
+    ["19. Normally, on a two-lane road, overtaking is allowed at the:", ["a. shoulder or pavement of the road", "b. blind curve with a yellow solid line", "c. left lane"], 2],
+    ["20. When do you have to make a complete full stop?", ["a. At a flashing yellow light", "b. At a red traffic light", "c. At an intersection"], 1],
+    ["21. The proper hand signal for a right turn is:", ["a. left arm pointing left", "b. left arm held pointing upward", "c. left arm held down, hand pointing at ground"], 1],
+    ["22. Single white broken line on a 2-way road means:", ["a. passing or overtaking can be made anytime", "b. it separates traffic moving in opposite directions", "c. absolutely no crossing"], 0],
+    ["23. What is the meaning of double solid yellow line?", ["a. Cross with due care", "b. Cross anytime", "c. Crossing/traversing or overtaking is not allowed"], 2],
+    ["24. Upon approaching an intersection marked with a yield sign, you are required to", ["a. stop before entering the intersection", "b. slowdown, then enter the intersection when the way is clear", "c. enter the intersection immediately"], 1],
+    ["25. The holder of a driver's license shall entitle him/her to operate:", ["a. any kind of motor vehicle", "b. motor vehicle/s specified in the license only", "c. motor vehicles for hire only"], 1],
+    ["26. When may you lend your driver's license?", ["a. Under no circumstances", "b. To another person who is learning to drive", "c. In emergencies"], 0],
+    ["27. At an intersection without stop or yield signs, two cars approach at right angles to each other at almost the same time. Which driver must yield?", ["a. The motorist on the right", "b. The motorist on the left", "c. Either of the driver has the 1st right-of-way"], 1],
+    ["28. Is it allowed to drive a motorcycle in a public road pending release of the Certificate of Registration?", ["a. No", "b. Yes", "c. Yes, if travel authority is given by the dealer"], 0],
+    ["29. Which of the following statement is true?", ["a. A DL holder with authority to drive MT is not allowed to drive AT", "b. A DL holder with authority to drive AT is allowed to drive MT", "c. A DL holder with authority to drive MT is allowed to operate AT"], 2],
+    ["30. Can you drive a motorcycle if your license bears DL Code B?", ["a. Yes", "b. No, unless authorized by a traffic enforcer", "c. No"], 2],
+    ["31. Identify this traffic sign: (U-Turn with Red Slash)", ["a. no u-turn", "b. dangerous left bend", "c. dangerous right bend"], 0],
+    ["32. Identify this traffic sign: (Triangle narrowing)", ["a. road widens", "b. slippery road ahead", "c. road narrows ahead"], 2],
+    ["33. Identify this traffic sign: (Horn with Red Slash)", ["a. no blowing of horn", "b. animals crossing", "c. dangerous bend"], 0],
+    ["34. Identify this traffic sign: (Triangle Circular Arrows)", ["a. Road narrows", "b. Roundabout", "c. no entry for all types of vehicle"], 1],
+    ["35. Identify this traffic sign: (Triangle Car Skidding)", ["a. slippery road", "b. winding road", "c. curve ahead"], 0],
+    ["36. What is the meaning of this traffic sign? (Yellow Diamond Pedestrians)", ["a. Pedestrian crossing", "b. Pedestrian crossing ahead", "c. Caution - School Zone"], 2],
+    ["37. Drinking alcohol before driving is one of the major causes of vehicular road crash because when a driver is drunk, he/she is:", ["a. arrogant, talkative and doesn't have the judgement...", "b. calm, relaxed and able to perform", "c. able to talk intelligently"], 0],
+    ["38. The Temporary Operator's Permit (TOP) authorizes the apprehended driver to operate motor vehicle for a period not exceeding:", ["a. 72 hours", "b. 1 week", "c. 15 days"], 0],
+    ["39. What is the maximum penalty for driving under the influence of liquor or prohibited drugs?", ["a. 6 months suspension", "b. 1-year suspension", "c. Perpetual revocation of license"], 1],
+    ["40. What is the meaning of a blue traffic light?", ["a. None, no blue traffic light", "b. Informative sign", "c. Proceed"], 0],
+    ["41. Motorcycle riders must consider safety and exercise due care. To do so, they are required to wear:", ["a. a policeman cap or gloves", "b. helmets intended for construction works", "c. standard protective helmet"], 2],
+    ["42. What should you do when another vehicle is following you too close?", ["a. Speed up to start a road race", "b. Slow down gradually and give him the signal to overtake", "c. Slam on your brakes"], 1],
+    ["43. Before changing lanes in traffic, aside from giving signal and checking your side and rearview mirrors, what else do you need to do?", ["a. Turn your head to check other vehicles beside your car", "b. Sound your horn", "c. Blink your headlights"], 0],
+    ["44. When approaching a sharp curve of the highway, you should:", ["a. reduce speed before entering the curve", "b. increase speed while negotiating the curve", "c. apply your brakes abruptly while taking the curve"], 0],
+    ["45. Night driving is difficult. We should do the following when a vehicle comes towards us at night:", ["a. dim your lights by switching to low beam", "b. brighten your light by switching to high beam", "c. switch on your headlights intermittently"], 0],
+    ["46. At night, when approaching a curve or intersection with poor visibility, be sure to:", ["a. switch off your headlights to enable oncoming motorists to see you", "b. flash your headlights to let pedestrians and oncoming motorists know...", "c. switch on your interior lights"], 1],
+    ["47. What is the best safety rule when driving a motor vehicle?", ["a. Never insist on your right-of-way", "b. Blow your horn to assert your right-of-way", "c. Always demand for the right-of-way"], 0],
+    ["48. A blind spot is either at your right or left that you do not see on your side mirror. What should you do before backing-up?", ["a. Turn your head to see that the way is clear", "b. Turn your wheel all the way to the right and pull up", "c. Turn your wheel all the way to the left and pull up"], 0],
+    ["49. Road crash can be avoided if the drivers:", ["a. follow traffic signs and pertinent traffic rules and regulations", "b. totally disobey traffic laws", "c. are ignorant of traffic laws"], 0],
+    ["50. What should you do whenever you are driving on a highway with a lot of potholes?", ["a. Increase speed", "b. Reduce speed", "c. Always change lane"], 1],
+    ["51. Sometimes, a driver passes through a busy street with so many pedestrians. Which of the following should a driver do?", ["a. Slowdown and check for safety when passing through", "b. Proceed with usual speed", "c. Stop at all cost"], 0],
+    ["52. Driving in heavy rains can be extremely dangerous due to limited visibility. What should you do?", ["a. When you cannot see more than 20 meters in front of you, turn on your hazard lights...", "b. Turn on your headlights and slow down or park at a safe place if situation is risky", "c. Turn on your hazard lights, blow your horn and continue driving"], 1],
+    ["53. If you see a ball coming from behind a parked vehicle, it is more likely that a kid is following it. What will you do?", ["a. Increase your speed", "b. Slow down", "c. Blow your horn and maintain your speed"], 1],
+    ["54. What should do when you see a traffic sign \"ACCIDENT PRONE AREA\"?", ["a. Slow down and be more alert than usual", "b. Increase your speed", "c. Blow your horn and resume your normal speed"], 0],
+    ["55. Which of the following is not a safe place to overtake?", ["a. When approaching a crest or upon a curve", "b. At an intersection", "c. All of the answers"], 2],
+    ["56. Disregarding traffic lights during late hours of the night could:", ["a. make you a good driver", "b. involve you in a fatal road crash", "c. decrease your fuel consumption"], 1],
+    ["57. A good driver must meet one's social responsibilities of caring for others by:", ["a. driving noisily to attract the attention of residents...", "b. exercising care for other pedestrians and vehicles around", "c. blowing one's horn every now and then"], 1],
+    ["58. When the vehicle you are driving runs off the road or hits an electric post or a parked car, the most probable reason is:", ["a. you are driving too fast and you lost control of your vehicle", "b. you lost brake", "c. you are trying to overtake"], 0],
+    ["59. If your vehicle broke down on the road, what should you do?", ["a. Leave the vehicle and call for a mechanic", "b. Switch on the hazard warning lights and display an Early Warning Device (EWD)...", "c. Turn off the engine and call for a mechanic"], 1],
+    ["60. What is the primary responsibility of a driver in times of a road crash?", ["a. Aid the victim", "b. Run and hide", "c. Ask for victim's identification card"], 0],
+    ["61. Which of the following is a quality of a defensive driver?", ["a. drivers who knows how to properly use clutch and brake pedals...", "b. drivers that are using the basic knowledge of safe driving techniques"], 1],
+    ["62. Which one is correct road discipline?", ["a. hiding from traffic enforcers during oplan sita", "b. following the advice of the elderly", "c. knowing and abiding by the traffic rules and regulations"], 2],
+    ["63. How can you overcome stress?", ["a. stopping, getting out of the vehicle, shouting at anybody...", "b. taking a deep breath, sitting comfortably, listening to soothing music...", "c. driving faster than allowed, listen to loud music..."], 1],
+    ["64. What may happen if a driver failed to overcome stress?", ["a. proper changing lanes", "b. smooth braking", "c. road rage"], 2],
+    ["65. Which of the following actions may result to road rage?", ["a. following a vehicle with enough space to maneuver", "b. cutting off other vehicles or following too close", "c. allowing other motorists to overtake with ease"], 1],
+    ["66. What is the ultimate result of a road rage?", ["a. Death", "b. more friends", "c. refreshment"], 0],
+    ["67. If you feel drowsy while driving, it is important that you:", ["a. park at a safe place, and take a short break before proceeding", "b. speed up to reach your destination faster", "c. stop driving, switch on the hazard lights and take a nap"], 0],
+    ["68. Can a driver allow a cyclist to hitch on his vehicle?", ["a. No, especially without permission from an enforcer", "b. No, road crash may happen", "c. No"], 2],
+    ["69. What is the first thing to do if you experience a tire blowout?", ["a. Don't step on the brakes, focus on the steering wheel", "b. Step on your brakes immediately to avoid hitting the motor vehicle", "c. Switch off the engine"], 0],
+    ["70. What is the main purpose of having a vehicle undergo regular vehicle maintenance inspection?", ["a. to verify the chassis and engine numbers of the vehicle", "b. to check the roadworthiness of the vehicle", "c. to check the driver's performance"], 1],
+    ["71. When do you need to follow the traffic rules and regulations?", ["a. when avoiding an enforcer", "b. when parked", "c. while at the steering wheel"], 2],
+    ["72. Under R.A. 8750, Children must be properly restraint if they are:", ["a. 10 years old", "b. 6 years old and below", "c. 7 years old"], 1],
+    ["73. In driving, the most important sense the driver needs is:", ["a. hearing", "b. smelling", "c. seeing"], 2],
+    ["74. Identify this traffic sign: (30 km/h)", ["a. driving speed to beat the traffic", "b. distance of the next intersection is 30 km", "c. required speed limit is 30kph"], 2],
+    ["75. Identify this traffic sign: (GIVE WAY)", ["a. you must give right-of-way", "b. you have the right-of-way", "c. early warning device"], 0],
+    ["76. What is the meaning of yellow painted curb?", ["a. No loading/Unloading", "b. No Parking", "c. No waiting"], 1],
+    ["77. What do you need to do upon parking and getting out of the vehicle?", ["a. lock all the doors", "b. engage the parking brake", "c. blow horn"], 1],
+    ["78. What do rumble strips on the road indicate?", ["a. To stop at once and wait for a go signal...", "b. To be aware of the speed approaching obstructions or intersections", "c. To be more aggressive"], 1],
+    ["79. What is the required color of headlights?", ["a. any color may do", "b. red", "c. white or yellowish white"], 2],
+    ["80. What is the required color of brake lights?", ["a. White", "b. bright red", "c. yellow"], 1],
+    ["81. What are the requirements for motor vehicle registration?", ["a. Anti-carnapping clearance", "b. LTO inspection of the vehicle and emission test compliance", "c. District Traffic Enforcement Clearance"], 1],
+    ["82. When do you need to use your seat belt?", ["a. When driving on a national road", "b. When driving above 10 kph", "c. While the engine is running and before moving off"], 2],
+    ["83. What is the primary objective of the Seat Belt Act?", ["a. To restrict the driver in times of road rage", "b. To complete the practical driving course", "c. To secure and safeguard the passengers and drivers of a motor vehicles"], 2],
+    ["84. What is the maximum height that a driver can install his mobile phone from the base of the dashboard?", ["a. 2 inches", "b. 4 inches", "c. 6 inches"], 1],
+    ["85. Under R.A. No. 11229, What is the allowable age that a child may sit in front passenger seat of a car?", ["a. more than 12 years old", "b. 16 years old and above", "c. 18 years old and above"], 0],
+    ["86. What is the height requirement for a child to be exempted to use a child restraint system?", ["a. 100 cms and above", "b. 150 cms and above", "c. 180 cms and above"], 1],
+    ["87. Can an expired child restraint system be used when it still looks in good shape?", ["a. Yes", "b. No", "c. Yes, provided that it is allowed by traffic enforcers"], 1],
+    ["88. When does a driver need to wear a helmet when riding a motorcycle?", ["a. For long and short drives", "b. For long or short drives and in any type of road or highway", "c. For national road only"], 1],
+    ["89. What type of helmet should a rider must use?", ["a. Standard motorcycle helmet compliant to specifications of LTO", "b. Standard motorcycle helmet compliant to specifications of DENR", "c. Standard motorcycle helmet compliant to specifications of DTI"], 2],
+    ["90. Who are responsible if a motorcycle was used in the commission of a crime?", ["a. owner, driver and backrider", "b. driver only", "c. backrider and driver"], 0],
+    ["91. Under the Children's Safety on Motorcycles Act, a child below 18 years old can't ride in a two-wheeled motorcycle on public roads unless:", ["a. The child can comfortably reach his/her feet on the standard foot peg... and is wearing the standard protective helmet.", "b. There is a high density of fast moving vehicles...", "c. The driver can grasp the waist of the child..."], 0],
+    ["92. What is the violation of a driver overtaking at an intersection having a one lane direction?", ["a. Overtaking at an intersection", "b. Obstruction", "c. Disregarding traffic signals"], 0],
+    ["93. When are you allowed to pick up passengers at a pedestrian lane?", ["a. When traffic enforcers are not looking", "b. When a passenger is already waiting", "c. Loading and unloading passengers at a pedestrian lane is not allowed"], 2],
+    ["94. Is a driver allowed to load cargo more than the vehicle's registered load capacity?", ["a. Yes", "b. No", "c. Yes, if the cargo is fragile or perishable"], 1],
+    ["95. Where can you contest an alleged traffic violation?", ["a. at the traffic adjudication office concerned", "b. on the street, before the traffic enforcer leaves", "c. at any adjudication office"], 0],
+    ["96. Who has the authority to confiscate a driver's license during a normal traffic violation?", ["a. LTO Law Enforcement Officers or LTO Deputized Agents", "b. Anybody, for as long as the violation is within the provisions of R.A. No. 4136", "c. Anybody, for as long as the traffic enforcer is a permanent employee..."], 0],
+    ["97. A 30-day suspension of the driver's license shall be imposed if:", ["a. The traffic violation committed is grave", "b. The driver fails to pay the corresponding penalty of the apprehension within 15 days", "c. The driver fails to pay the fine within 72 hours"], 1],
+    ["98. What does this hand signal mean when you are coming from the roadside and your signal is malfunctioning? (arm pointing straight left)", ["a. You are turning left.", "b. You are turning right.", "c. You are going to stop."], 0],
+    ["99. What should be the appropriate action when you see this traffic sign? (SLOW DOWN ACCIDENT PRONE AREA)", ["a. Slow down and be more alert than usual", "b. Increase your speed", "c. Blow your horn and resume your normal normal speed"], 0],
+    ["100. Where do you usually see this traffic sign? (Chevron pointing downwards)", ["a. Before the bridge", "b. Before changing lane", "c. At the column of a foot bridge"], 2],
+    ["101. What should a law enforcer do upon seizing a motorcycle from a traffic offender?", ["a. Use the motorcycle temporarily", "b. Surrender the motorcycle to authorities", "c. Send the motorcycle to the impounding area"], 2],
+    ["102. What does the law require you to do upon approaching an intersection with a STOP sign?", ["a. Slow down and proceed when it is safe", "b. Yield the right-of-way if necessary...", "c. Stop and proceed when it is safe"], 2],
+    ["103. After passing or overtaking another vehicle, you can safely move back into your original lane if:", ["a. the driver you passed honks his horn", "b. you can see in the rear-view mirror the overtaken car", "c. you can see in the side-view mirror the overtaken car"], 1],
+    ["104. Drivers moving slower than other motorists should use the:", ["a. outer lane", "b. center lane", "c. inner lane"], 0],
+    ["105. Some signs are called \"lane-use\" signs. They appear to direct you into the correct lane as you reach the actual intersection. They are usually seen:", ["a. before an intersection", "b. after an intersection", "c. on an intersection"], 0],
+    ["106. If you encounter an emergency vehicle (ambulance, fire trucks, police) with sirens on, what should you do?", ["a. Obstruct their passage and never allow them to pass through", "b. Just ignore", "c. Pull over to the left or right side of the road and give way"], 2],
+    ["107. A driver while on a highway shall yield the right of way to:", ["a. pedestrians crossing within a crosswalk", "b. pedestrians crossing at intersection...", "c. vehicles about to enter the highway"], 0],
+    ["108. With Anti-lock Braking System (ABS) installed on your vehicle, what should you do while driving with maximum speed and you have to stop suddenly?", ["a. Slam the brake pedal", "b. Apply brakes gently with steady pressure", "c. Pump the brake pedal"], 1],
+    ["109. Your speed while driving at night should depend on:", ["a. the physical, mental condition and skill of the driver", "b. the roadworthiness of the motor vehicle and weather condition", "c. all of the answers are correct"], 2],
+    ["110. The most effective way to deal with a tailgater is to:", ["a. ignore him but do not allow him to get away", "b. slow down and let him pass", "c. increase your speed and be alert on your brakes"], 1],
+    ["111. What should you do when an incoming vehicle is forced to cross the centerline to avoid hitting another vehicle which suddenly changed lane?", ["a. Ignore it because you have the right-of-way", "b. Blow your horn and turn on your headlight", "c. Be alert, be prepared to slow down, and give way"], 2],
+    ["112. What may happen if the driver deliberately disregard a regulatory traffic sign?", ["a. Road Crash", "b. Nothing", "c. Passengers will be happy"], 0],
+    ["113. When you want to change or shift to higher gear to speed up, and a car in the opposite direction crosses quickly to your lane, what will you do?", ["a. be alert, stop and give way to the car crossing", "b. insist on your right-of-way", "c. turn left immediately"], 0],
+    ["114. Who will win between two parties if they failed to overcome stress?", ["a. neither the aggressor nor the victim", "b. adjudication officer", "c. insurance company"], 0],
+    ["115. Driving along an open road, a PWD in a wheel chair abruptly crosses the road. How do you prevent yourself hitting the PWD?", ["a. move fast", "b. hold on to steering wheel and shift to an open space to avoid the PWD", "c. Prepare to stop"], 1],
+    ["116. Can a driver who had the opportunity to avoid a road crash and neglected to avoid such road crash be jointly held liable?", ["a. Yes", "b. No", "c. None of the above"], 0],
+    ["117. When parking, how many meters is allowed from the location of a fire hydrant?", ["a. more than one meter of the fire hydrant", "b. more than four meters of the fire hydrant", "c. there is no regulation as to where to park around the fire hydrant"], 1],
+    ["118. Driving a car, which lane should you use in a three (3) lane expressway during normal situation?", ["a. 1st lane", "b. 2nd lane", "c. 3rd lane"], 1],
+    ["119. Is a driver allowed to drive on the transition lines?", ["a. Yes", "b. No", "c. Yes, if traffic flow is heavy"], 1],
+    ["120. What should you do if a pedestrian is crossing a non-signalized pedestrian lane?", ["a. Stop and let the pedestrian cross", "b. Stop and blow horn", "c. Drive faster and do not wait for the pedestrian to cross"], 0]
 ];
+
+// Convert examData to the format used by the app, stripping out the leading numbers/letters
+const questions = examData.map(item => {
+    // Remove leading number and dot/space, e.g., "1. " or "120. "
+    const questionText = item[0].replace(/^\d+\.\s*/, '');
+    
+    // Remove leading letter and dot/space, e.g., "a. " or "c. "
+    const optionsText = item[1].map(opt => opt.replace(/^[a-c]\.\s*/, ''));
+    
+    return {
+        question: questionText,
+        options: optionsText,
+        answer: item[2]
+    };
+});
