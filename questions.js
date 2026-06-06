@@ -141,7 +141,7 @@ const questions = [
       "pedestrians are not allowed to cross all pedestrian lanes",
       "the vehicles on the other street are stopped"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "question": "Flashing yellow light means:",
@@ -159,7 +159,7 @@ const questions = [
       "within 3 meters of the intersection of curve lines",
       "on the intersection"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "question": "Normally, on a two-lane road, overtaking is allowed at the:",
@@ -195,7 +195,7 @@ const questions = [
       "it separates traffic moving in opposite directions",
       "absolutely no crossing"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "What is the meaning of double solid yellow line?",
@@ -348,7 +348,7 @@ const questions = [
       "1-year suspension",
       "Perpetual revocation of license"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "What is the meaning of a blue traffic light?",
@@ -543,7 +543,8 @@ const questions = [
     "question": "Which of the following is a quality of a defensive driver?",
     "options": [
       "drivers who knows how to properly use clutch and brake pedals...",
-      "drivers that are using the basic knowledge of safe driving techniques"
+      "drivers that are using the basic knowledge of vehicle maintenance0",
+      "driver who continues to drive even with flat tires to avoid an impounding ticket"
     ],
     "answer": 1
   },
