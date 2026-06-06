@@ -247,12 +247,14 @@ function generateResults() {
     const percentage = (score / shuffledQuestions.length) * 100;
     ui.scoreCircle.style.background = `conic-gradient(var(--primary) ${percentage}%, var(--bg-color) 0%)`;
     
-    if (percentage >= 80) {
-        ui.scoreMessage.textContent = "Excellent job! You're ready for the LTO Exam.";
-    } else if (percentage >= 60) {
-        ui.scoreMessage.textContent = "Good effort! A little more review will help.";
+    const passingScore = Math.ceil(shuffledQuestions.length * 0.8);
+    
+    if (score >= passingScore) {
+        ui.scoreMessage.textContent = `🎉 PASSED! (Passing score: ${passingScore}/${shuffledQuestions.length})`;
+        ui.scoreMessage.style.color = '#16a34a';
     } else {
-        ui.scoreMessage.textContent = "Keep studying! Review your mistakes below.";
+        ui.scoreMessage.textContent = `❌ FAILED. You need ${passingScore} to pass. Keep studying!`;
+        ui.scoreMessage.style.color = '#dc2626';
     }
 }
 
