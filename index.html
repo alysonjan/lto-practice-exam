@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Start Screen -->
@@ -14,23 +16,25 @@
             <h1>LTO Practice Exam</h1>
             <p>Test your knowledge with these 10 LTO exam questions.</p>
             <p>You have <strong>20 minutes</strong> to complete the exam.</p>
+            <h2>Prepared by: Ajax Alyson</h2>
             <button id="start-btn" class="primary-btn">Start Exam</button>
         </div>
 
         <!-- Quiz Screen -->
         <div id="quiz-screen" class="screen">
             <div class="header">
-                <div class="progress">Question <span id="current-q-num">1</span> of <span id="total-q-num">10</span></div>
+                <div class="progress">Question <span id="current-q-num">1</span> of <span id="total-q-num">10</span>
+                </div>
                 <div class="timer">Time Left: <span id="time-left">20:00</span></div>
             </div>
-            
+
             <div class="question-container">
                 <h2 id="question-text">Question text here</h2>
                 <div id="options-container" class="options-grid">
                     <!-- Options injected here -->
                 </div>
             </div>
-            
+
             <div class="footer">
                 <button id="prev-btn" class="secondary-btn" disabled>Previous</button>
                 <button id="next-btn" class="primary-btn">Next</button>
@@ -47,14 +51,14 @@
                 </div>
                 <p id="score-message">Good job!</p>
             </div>
-            
+
             <div class="review-section">
                 <h2>Review Answers</h2>
                 <div id="review-container">
                     <!-- Review items injected here -->
                 </div>
             </div>
-            
+
             <button id="restart-btn" class="primary-btn">Take Exam Again</button>
         </div>
     </div>
@@ -62,4 +66,5 @@
     <script src="questions.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
