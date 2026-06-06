@@ -28,14 +28,44 @@ const ui = {
 
 // State
 let currentQuestionIndex = 0;
-let userAnswers = new Array(questions.length).fill(null);
+let shuffledQuestions = [];
+let userAnswers = [];
 let timerInterval;
 const TOTAL_TIME = 20 * 60; // 20 minutes in seconds
 // let timeRemaining = TOTAL_TIME;
 
+// Fisher-Yates shuffle
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+// Shuffle questions and their options, keeping correct answer tracked
+function shuffleExam() {
+    shuffledQuestions = shuffleArray(questions).map(q => {
+        // Build an array of { text, isCorrect } so we can shuffle options safely
+        const taggedOptions = q.options.map((opt, i) => ({
+            text: opt,
+            isCorrect: i === q.answer
+        }));
+        const shuffledOptions = shuffleArray(taggedOptions);
+        return {
+            question: q.question,
+            options: shuffledOptions.map(o => o.text),
+            answer: shuffledOptions.findIndex(o => o.isCorrect)
+        };
+    });
+    userAnswers = new Array(shuffledQuestions.length).fill(null);
+}
+
 // Initialize
 function init() {
     ui.totalQNum.textContent = questions.length;
+    shuffleExam();
     
     buttons.start.addEventListener('click', startExam);
     buttons.next.addEventListener('click', () => navigate(1));
@@ -70,6 +100,7 @@ function updateTimer() {
 }
 
 function startExam() {
+    shuffleExam();
     showScreen('quiz');
     // timeRemaining = TOTAL_TIME;
     // ui.timeLeft.textContent = formatTime(timeRemaining);
@@ -79,7 +110,7 @@ function startExam() {
 }
 
 function loadQuestion(index) {
-    const question = questions[index];
+    const question = shuffledQuestions[index];
     currentQuestionIndex = index;
     
     ui.currentQNum.textContent = index + 1;
@@ -108,7 +139,7 @@ function loadQuestion(index) {
     // Update buttons
     buttons.prev.disabled = index === 0;
     
-    if (index === questions.length - 1) {
+    if (index === shuffledQuestions.length - 1) {
         buttons.next.classList.add('hidden');
         buttons.submit.classList.remove('hidden');
     } else {
@@ -122,7 +153,7 @@ function selectOption(optionIndex) {
     if (userAnswers[currentQuestionIndex] !== null) return;
     
     userAnswers[currentQuestionIndex] = optionIndex;
-    const question = questions[currentQuestionIndex];
+    const question = shuffledQuestions[currentQuestionIndex];
     
     // Update UI immediately to show correct/incorrect
     const options = ui.optionsContainer.children;
@@ -137,7 +168,7 @@ function selectOption(optionIndex) {
 
 function navigate(direction) {
     const newIndex = currentQuestionIndex + direction;
-    if (newIndex >= 0 && newIndex < questions.length) {
+    if (newIndex >= 0 && newIndex < shuffledQuestions.length) {
         loadQuestion(newIndex);
     }
 }
@@ -152,7 +183,7 @@ function generateResults() {
     let score = 0;
     ui.reviewContainer.innerHTML = '';
     
-    questions.forEach((q, qIndex) => {
+    shuffledQuestions.forEach((q, qIndex) => {
         const userAnswer = userAnswers[qIndex];
         const isCorrect = userAnswer === q.answer;
         
@@ -210,10 +241,10 @@ function generateResults() {
     });
     
     // Update Score UI
-    ui.scoreText.textContent = `${score}/${questions.length}`;
+    ui.scoreText.textContent = `${score}/${shuffledQuestions.length}`;
     
     // Calculate percentage for circular progress
-    const percentage = (score / questions.length) * 100;
+    const percentage = (score / shuffledQuestions.length) * 100;
     ui.scoreCircle.style.background = `conic-gradient(var(--primary) ${percentage}%, var(--bg-color) 0%)`;
     
     if (percentage >= 80) {
@@ -226,7 +257,7 @@ function generateResults() {
 }
 
 function resetExam() {
-    userAnswers = new Array(questions.length).fill(null);
+    shuffleExam();
     currentQuestionIndex = 0;
     showScreen('start');
 }
